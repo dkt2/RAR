@@ -5,6 +5,6 @@ crontab -e
 SHELL=/bin/bash
 
 # bottom of file
-* * * * * /home/pi/Git/ip-finder/ip_finder_shell.sh
-@reboot /home/pi/Git/ip-finder/ip_finder_shell.sh
+* * * * * /home/pi/Git/RAR/ip-finder/ip.sh
+@reboot /home/pi/Git/RAR/ip-finder/ip.sh
 # make sure to have a blank line at the bottom
