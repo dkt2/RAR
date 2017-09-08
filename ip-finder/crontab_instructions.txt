@@ -1,0 +1,10 @@
+# command to run
+crontab -e
+
+# top of file
+SHELL=/bin/bash
+
+# bottom of file
+* * * * * /home/pi/Git/ip-finder/ip_finder_shell.sh
+@reboot /home/pi/Git/ip-finder/ip_finder_shell.sh
+# make sure to have a blank line at the bottom
