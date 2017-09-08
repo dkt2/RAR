@@ -1,76 +1,27 @@
-""" script to automated recording sounds based on a schedule"""
-import wave
+""" script to test battery life by change txt file every minute """
 import time
-import pyaudio
-
-PY_DRIVER = pyaudio.PyAudio()
-CHUNK = 1024
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-# RATE = 44100
-RATE = 10000
-# RECORD_SECONDS = 5
-# RECORD_SECONDS = 60 # 1 min
-RECORD_SECONDS = 3600 # 1 hour
-STREAM = PY_DRIVER.open(format=FORMAT,
-                        channels=CHANNELS,
-                        rate=RATE,
-                        input=True,
-                        frames_per_buffer=CHUNK)
+import os
 
 def get_curr_time():
     """ get current time formatted """
     return time.asctime(time.localtime(time.time()))
 
-def get_curr_hour():
-    """ get current hour """
-    return time.localtime(time.time())[3]
-
 def start_timer():
-    with open('./time/start.txt', 'w') as input_file:
+    """ log inital start time """
+    with open('../time/start.txt', 'w') as input_file:
         input_file.write(get_curr_time())
 
 def stop_timer():
-    with open('./time/end.txt', 'w') as input_file:
-            input_file.write(get_curr_time())
-
-def record():
-    """ main recording routine """
-    print("* RECORDING START")
-    frames = []
-    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-        data = STREAM.read(CHUNK)
-        frames.append(data)
-    print("* RECORDING STOP")
-    return frames
-
-def save_recording(frames, filename):
-    """ main recording saver routine """
-    print("* RECORDING SAVING...")
-    wave_form = wave.open("./recordings/{}".format(filename), 'wb')
-    wave_form.setnchannels(CHANNELS)
-    wave_form.setsampwidth(PY_DRIVER.get_sample_size(FORMAT))
-    wave_form.setframerate(RATE)
-    wave_form.writeframes(b''.join(frames))
-    wave_form.close()
-    print("* RECORDING SAVED")
+    """ log stop time """
+    with open('../time/end.txt', 'w') as input_file:
+        input_file.write(get_curr_time())
 
 def main():
-    """ main """
+    """ main routine """
+    os.chdir(os.path.dirname(__file__))
     start_timer()
-    counter = 0
-    loop = True
-    while loop:
-        filename = "{}.wav".format(get_curr_time())
-        print()
-        print("*** RECORDING CYCLE {} ***".format(counter))
-        save_recording(record(), filename)
-        print("*** RECORDING CYCLE {} ***".format(counter))
-        counter += 1
-        stop_timer()
-    STREAM.stop_stream()
-    STREAM.close()
-    PY_DRIVER.terminate()
+    time.sleep(60) # wait 60 secs / 1 min
+    stop_timer()
 
 if __name__ == '__main__':
     main()
