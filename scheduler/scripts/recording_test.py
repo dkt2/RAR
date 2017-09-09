@@ -1,6 +1,7 @@
 """ script to automated recording sounds based on a schedule"""
 import wave
 import time
+import os
 import pyaudio
 
 PY_DRIVER = pyaudio.PyAudio()
@@ -9,9 +10,9 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 # RATE = 44100
 RATE = 10000
-# RECORD_SECONDS = 5
+RECORD_SECONDS = 5
 # RECORD_SECONDS = 60 # 1 min
-RECORD_SECONDS = 3600 # 1 hour
+# RECORD_SECONDS = 3600 # 1 hour
 STREAM = PY_DRIVER.open(format=FORMAT,
                         channels=CHANNELS,
                         rate=RATE,
@@ -49,6 +50,7 @@ def save_recording(frames, filename):
 
 def main():
     """ main """
+    os.chdir(os.path.dirname(__file__))
     counter = 0
     loop = True
     while loop:
