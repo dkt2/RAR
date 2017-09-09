@@ -1,6 +1,4 @@
 #!/bin/bash
-PATH=/usr/local/bin:/usr/bin:/bin
-
 cd /home/pi/Git/RAR/ip-finder/
 touch ip_log.txt
 touch dweet_log.txt
