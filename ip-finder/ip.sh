@@ -1,7 +1,7 @@
-# while [ true ]; do
- 
-#  sleep 30
-# done
+#!/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+
+cd /home/pi/Git/RAR/ip-finder/
 touch ip_log.txt
 touch dweet_log.txt
 IP="$(ip route get 8.8.8.8 | awk '{print $NF; exit}')"
