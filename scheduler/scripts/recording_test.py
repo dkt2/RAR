@@ -50,7 +50,8 @@ def save_recording(frames, filename):
 
 def main():
     """ main """
-    os.chdir(os.path.dirname(__file__))
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
     counter = 0
     loop = True
     while loop:
