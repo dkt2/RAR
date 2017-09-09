@@ -8,11 +8,13 @@ def get_curr_time():
 
 def start_timer():
     """ log inital start time """
+    print("start timer")
     with open('../time/start.txt', 'w') as input_file:
         input_file.write(get_curr_time())
 
 def stop_timer():
     """ log stop time """
+    print("stop timer")
     with open('../time/end.txt', 'w') as input_file:
         input_file.write(get_curr_time())
 
