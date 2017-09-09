@@ -8,3 +8,5 @@ SHELL=/bin/bash
 * * * * * /home/pi/Git/RAR/ip-finder/ip.sh
 @reboot /home/pi/Git/RAR/ip-finder/ip.sh
 # make sure to have a blank line at the bottom
+# make sure to set the file to executable 
+# chmod +x ip.sh
