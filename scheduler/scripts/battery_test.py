@@ -6,25 +6,23 @@ def get_curr_time():
     """ get current time formatted """
     return time.asctime(time.localtime(time.time()))
 
-def start_timer():
-    """ log inital start time """
-    print("start timer")
-    with open('../time/start.txt', 'w') as input_file:
-        input_file.write(get_curr_time())
+def record_time():
+    with open('../time/time.txt', 'a') as input_file:
+        input_file.write(get_curr_time() + '\n')
 
-def stop_timer():
-    """ log stop time """
-    print("stop timer")
-    with open('../time/end.txt', 'w') as input_file:
-        input_file.write(get_curr_time())
+def clear_log():
+    with open('../time/time.txt', 'w') as input_file:
+        input_file.write('')
 
 def main():
     """ main routine """
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    start_timer()
+    clear_log()
     while True:
+        print("start timer")
+        record_time()
         time.sleep(10) # wait 60 secs / 1 min
-        stop_timer()
+        print("stop timer")
 
 if __name__ == '__main__':
     main()
