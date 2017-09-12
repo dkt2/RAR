@@ -21,9 +21,9 @@ def stop_timer():
 def main():
     """ main routine """
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    start_timer()
     while True:
-        start_timer()
-        time.sleep(60) # wait 60 secs / 1 min
+        time.sleep(10) # wait 60 secs / 1 min
         stop_timer()
 
 if __name__ == '__main__':
