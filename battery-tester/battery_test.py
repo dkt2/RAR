@@ -7,11 +7,11 @@ def get_curr_time():
     return time.asctime(time.localtime(time.time()))
 
 def record_time():
-    with open('./time.txt', 'a') as input_file:
+    with open('../logs/time.txt', 'a') as input_file:
         input_file.write(get_curr_time() + '\n')
 
 def clear_log():
-    with open('./time.txt', 'w') as input_file:
+    with open('../logs/time.txt', 'w') as input_file:
         input_file.write('')
 
 def main():
