@@ -1,7 +1,7 @@
 #!/bin/bash
 IP="$(ip route get 8.8.8.8 | awk '{print $NF; exit}')"
 dweet_id_ip="elegant-songs"
-cwd="$HOME/Git/RAR/logs"
+cwd="$HOME/Git/RAR/ip-finder/logs"
 
 touch "${cwd}/ip_log.txt"
 touch "${cwd}/dweet_log.txt"
