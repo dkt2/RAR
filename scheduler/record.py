@@ -27,7 +27,7 @@ def current_hour():
 def time_blocks():
     """ returns an array of array containing user specified beginning and end time """
     return_me = None
-    with open('/home/hotdog-soup/Documents/scheduler/times.txt') as file:
+    with open('./times.txt') as file:
         for line in file:
             return_me = [li.split('-') for li in line.split(',')]
     return return_me

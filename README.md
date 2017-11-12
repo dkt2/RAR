@@ -17,10 +17,10 @@ The dependencies for the `record.py` script is as follows...
 
 **Python**:
 - Python3, pip3 
-- pyaudio (using pip or package manager (e.g. apt-get python3-pyaudio)
+- pyaudio (using pip (e.g. sudo pip3 install pyaudio) or package manager (e.g. sudo apt install python3-pyaudio))
 
 **Linux**:
-- portaudio19-dev (portaudio library developement package) 
+- portaudio19-dev (portaudio library developement package) (e.g. sudo apt install portaudio19-dev)
 - python-all-dev (python development package) 
 
 refer to this pages for other OS: 
