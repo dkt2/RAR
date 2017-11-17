@@ -37,7 +37,7 @@ def record():
     print("* RECORDING START")
     frames = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-        data = STREAM.read(CHUNK)
+        data = STREAM.read(CHUNK, exception_on_overflow = False)
         frames.append(data)
     print("* RECORDING STOP")
     return frames
